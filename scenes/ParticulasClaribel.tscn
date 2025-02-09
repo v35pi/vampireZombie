@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3sarktomtivd"]
+
+[ext_resource type="Texture2D" uid="uid://cbux2pji0w7u3" path="res://assets/sprites/particula_enfado.png" id="1_6r5du"]
+
+[sub_resource type="Curve" id="Curve_i8u3b"]
+_data = [Vector2(0, 0.486792), 0.0, 0.0, 0, 0, Vector2(0.737069, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6f0hu"]
+curve = SubResource("Curve_i8u3b")
+
+[sub_resource type="Curve" id="Curve_5rxgw"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 18.965), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g13gd"]
+curve = SubResource("Curve_5rxgw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f3wr3"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape_scale = Vector3(1, 1, 0)
+angle_min = -180.0
+angle_max = 180.0
+inherit_velocity_ratio = 3.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 50.0
+linear_accel_max = 100.0
+radial_accel_min = -30.0
+radial_accel_max = 30.0
+tangential_accel_min = -30.0
+tangential_accel_max = 30.0
+damping_min = 1.0
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_g13gd")
+attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_6f0hu")
+anim_offset_min = 0.846
+anim_offset_max = 0.846
+turbulence_noise_scale = 1.818
+turbulence_noise_speed = Vector3(50, 50, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_f3wr3")
+texture = ExtResource("1_6r5du")
+lifetime = 1.5
+explosiveness = 0.75
+collision_base_size = 0.0

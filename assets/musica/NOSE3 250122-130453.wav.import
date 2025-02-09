@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2x6ucev0m3b5"
+path="res://.godot/imported/NOSE3 250122-130453.wav-ea497991baf7a48f21b0f99dddc958e4.sample"
+
+[deps]
+
+source_file="res://assets/musica/NOSE3 250122-130453.wav"
+dest_files=["res://.godot/imported/NOSE3 250122-130453.wav-ea497991baf7a48f21b0f99dddc958e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

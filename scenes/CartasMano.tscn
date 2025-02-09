@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://bm2ql5bbioj4w"]
+
+[ext_resource type="Texture2D" uid="uid://7nvuytwbr58r" path="res://assets/sprites/carta1_nube.png" id="1_4hktk"]
+[ext_resource type="Shader" path="res://assets/CartasMano.gdshader" id="1_30u50"]
+[ext_resource type="Texture2D" uid="uid://f1m4t3tr165m" path="res://assets/sprites/carta2_champi.png" id="2_530nx"]
+[ext_resource type="Texture2D" uid="uid://c010ptpgffsf" path="res://assets/sprites/carta3_flor.png" id="3_12p0a"]
+[ext_resource type="Texture2D" uid="uid://btt5y4818s61r" path="res://assets/sprites/carta4_luigi.png" id="4_amcht"]
+[ext_resource type="Texture2D" uid="uid://c05o3jgt7e3ii" path="res://assets/sprites/carta5_mario.png" id="5_5laeo"]
+[ext_resource type="Texture2D" uid="uid://dxxpd4g77d0kh" path="res://assets/sprites/carta6_estrella.png" id="6_bq2n5"]
+[ext_resource type="Texture2D" uid="uid://dapb5quwp05b4" path="res://assets/sprites/carta0_bocabajo.png" id="7_glsbq"]
+[ext_resource type="Script" path="res://assets/scripts/Cartas.gd" id="8_d4322"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xc3r"]
+shader = ExtResource("1_30u50")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44thj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4hktk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_530nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_12p0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_amcht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5laeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bq2n5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_glsbq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yap04"]
+size = Vector2(93, 134)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_8xc3r")
+sprite_frames = SubResource("SpriteFrames_44thj")
+script = ExtResource("8_d4322")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_yap04")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

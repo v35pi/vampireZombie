@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qhekvt4fdhft"
+path="res://.godot/imported/SPOOKY 250122-130343.wav-603e6c12c7e5472cfb6cadcf3dbe6a66.sample"
+
+[deps]
+
+source_file="res://assets/musica/SPOOKY 250122-130343.wav"
+dest_files=["res://.godot/imported/SPOOKY 250122-130343.wav-603e6c12c7e5472cfb6cadcf3dbe6a66.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=3 uid="uid://dfwufbr18eeg2"]
+
+[ext_resource type="Script" path="res://assets/scripts/CartasNuevas.gd" id="1_npcrh"]
+[ext_resource type="Shader" path="res://assets/shaders/CartasMano.gdshader" id="2_sxjig"]
+[ext_resource type="Texture2D" uid="uid://7nvuytwbr58r" path="res://assets/sprites/carta1_nube.png" id="2_ulnk2"]
+[ext_resource type="Texture2D" uid="uid://f1m4t3tr165m" path="res://assets/sprites/carta2_champi.png" id="3_hvsvk"]
+[ext_resource type="Texture2D" uid="uid://c010ptpgffsf" path="res://assets/sprites/carta3_flor.png" id="4_myknj"]
+[ext_resource type="Texture2D" uid="uid://btt5y4818s61r" path="res://assets/sprites/carta4_luigi.png" id="5_awi6n"]
+[ext_resource type="Texture2D" uid="uid://c05o3jgt7e3ii" path="res://assets/sprites/carta5_mario.png" id="6_isa43"]
+[ext_resource type="Texture2D" uid="uid://dxxpd4g77d0kh" path="res://assets/sprites/carta6_estrella.png" id="7_76xts"]
+[ext_resource type="Texture2D" uid="uid://dapb5quwp05b4" path="res://assets/sprites/carta0_bocabajo.png" id="8_ecu35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynm63"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3h0hn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi3d0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfeun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7uud"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rjd6"]
+resource_local_to_scene = true
+shader = ExtResource("2_sxjig")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wai2i"]
+resource_local_to_scene = true
+frames = 7
+pause = true
+frame_0/texture = ExtResource("2_ulnk2")
+frame_1/texture = ExtResource("3_hvsvk")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_myknj")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_awi6n")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_isa43")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_76xts")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("8_ecu35")
+frame_6/duration = 1.0
+
+[node name="Button" type="Button"]
+offset_right = 44.0
+offset_bottom = 67.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ynm63")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3h0hn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qi3d0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tfeun")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7uud")
+script = ExtResource("1_npcrh")
+
+[node name="TexturaCarta" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_0rjd6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 33)
+texture = SubResource("AnimatedTexture_wai2i")
+expand_mode = 1
+
+[node name="Sombra" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 0.337255)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 33)
+texture = ExtResource("8_ecu35")
+expand_mode = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

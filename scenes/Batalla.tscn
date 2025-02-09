@@ -1,0 +1,268 @@
+[gd_scene load_steps=31 format=3 uid="uid://cjmie66p70hle"]
+
+[ext_resource type="Script" path="res://assets/scripts/Batalla.gd" id="1_5cr7i"]
+[ext_resource type="Script" path="res://assets/scripts/Parallax.gd" id="2_x885q"]
+[ext_resource type="Texture2D" uid="uid://crt1kwu2dx6lv" path="res://assets/sprites/fondo_fondo.png" id="3_8abdi"]
+[ext_resource type="Texture2D" uid="uid://dbfe5cinupkmx" path="res://assets/sprites/mesa.png" id="4_681xi"]
+[ext_resource type="Script" path="res://assets/scripts/Claribel.gd" id="5_qqaau"]
+[ext_resource type="Shader" uid="uid://bamrh0183wx0q" path="res://assets/shaders/agitar_claribel.tres" id="6_0gwym"]
+[ext_resource type="Texture2D" uid="uid://cfu6mrxqmfmv3" path="res://assets/sprites/personajes/claribel/claribel_0.png" id="7_nsp4p"]
+[ext_resource type="Texture2D" uid="uid://lu2jurt5babb" path="res://assets/sprites/personajes/claribel/claribel_1.png" id="8_4f7pf"]
+[ext_resource type="Texture2D" uid="uid://34fiao4eladj" path="res://assets/sprites/personajes/claribel/claribel_2.png" id="9_qckep"]
+[ext_resource type="Texture2D" uid="uid://fek31er38mec" path="res://assets/sprites/personajes/claribel/claribel_3.png" id="10_aaqyk"]
+[ext_resource type="Texture2D" uid="uid://4rgmohnsydwq" path="res://assets/sprites/personajes/claribel/claribel_4.png" id="11_qxks0"]
+[ext_resource type="Script" path="res://assets/scripts/Emociones.gd" id="12_br76s"]
+[ext_resource type="PackedScene" uid="uid://b3sarktomtivd" path="res://scenes/ParticulasClaribel.tscn" id="13_7vagw"]
+[ext_resource type="Texture2D" uid="uid://c58ceis3hptkq" path="res://assets/sprites/globo4.png" id="14_iuat0"]
+[ext_resource type="Texture2D" uid="uid://jne7mhq7crr2" path="res://assets/sprites/globo5.png" id="15_0sqin"]
+[ext_resource type="Texture2D" uid="uid://b715eu4wmt5ec" path="res://assets/sprites/globo6.png" id="16_vfw3k"]
+[ext_resource type="Script" path="res://assets/scripts/SpriteGlobo.gd" id="17_prode"]
+[ext_resource type="FontFile" uid="uid://wn7l3rvivc24" path="res://assets/fonts/KiwiSoda.ttf" id="18_8leg6"]
+[ext_resource type="Script" path="res://assets/scripts/TextoGlobo.gd" id="19_jw14c"]
+[ext_resource type="Texture2D" uid="uid://bkj0l0bq7od82" path="res://assets/sprites/personajes/lazarus/lazarus.png" id="20_l6k6k"]
+[ext_resource type="PackedScene" uid="uid://bi7dhq8env27i" path="res://scenes/Marco.tscn" id="21_ftrec"]
+[ext_resource type="Script" path="res://assets/scripts/Mano.gd" id="22_jf0hj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wn6gp"]
+shader = ExtResource("6_0gwym")
+shader_parameter/WindStrength = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bc36c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nsp4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4f7pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qckep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aaqyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qxks0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwpgf"]
+radius = 83.0
+height = 214.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x71sh"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s11m6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_iuat0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0sqin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vfw3k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0yl4"]
+radius = 37.0
+height = 288.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7eot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_l6k6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4thgw"]
+radius = 41.0
+height = 116.0
+
+[node name="Batalla" type="Node" node_paths=PackedStringArray("mano_claribel", "texto_mano_claribel", "emociones_claribel", "texto_bocadillo", "mano_lazarus", "texto_mano_lazarus", "emociones_lazarus", "contador_victorias")]
+script = ExtResource("1_5cr7i")
+mano_claribel = NodePath("PARALLAX/MARCO/MARCO/MANO CLARIBEL")
+texto_mano_claribel = NodePath("PARALLAX/MARCO/MARCO/TEXTO MANO CLARIBEL")
+emociones_claribel = NodePath("PARALLAX/CLARIBEL/EMOCIONES CLARIBEL")
+texto_bocadillo = NodePath("PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/TEXTO GLOBO")
+mano_lazarus = NodePath("PARALLAX/MARCO/MARCO/MANO LAZARUS")
+texto_mano_lazarus = NodePath("PARALLAX/MARCO/MARCO/TEXTO MANO LAZARUS")
+emociones_lazarus = NodePath("PARALLAX/LAZARUS/EMOCIONES LAZARUS")
+contador_victorias = NodePath("PARALLAX/MARCO/MARCO/CONTADOR VICTORIAS")
+
+[node name="PARALLAX" type="ParallaxBackground" parent="."]
+script = ExtResource("2_x885q")
+
+[node name="FONDO" type="ParallaxLayer" parent="PARALLAX"]
+
+[node name="Sprite" type="Sprite2D" parent="PARALLAX/FONDO"]
+z_index = -10
+position = Vector2(-8, -5)
+scale = Vector2(1.02899, 1.02899)
+texture = ExtResource("3_8abdi")
+centered = false
+
+[node name="MESA" type="ParallaxLayer" parent="PARALLAX"]
+
+[node name="Sprite" type="Sprite2D" parent="PARALLAX/MESA"]
+position = Vector2(164, 312)
+texture = ExtResource("4_681xi")
+
+[node name="CLARIBEL" type="ParallaxLayer" parent="PARALLAX"]
+position = Vector2(172, 159)
+script = ExtResource("5_qqaau")
+
+[node name="EMOCIONES CLARIBEL" type="AnimatedSprite2D" parent="PARALLAX/CLARIBEL"]
+material = SubResource("ShaderMaterial_wn6gp")
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_bc36c")
+script = ExtResource("12_br76s")
+
+[node name="AREA 2D" type="Area2D" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/AREA 2D"]
+position = Vector2(-1, 21)
+shape = SubResource("CapsuleShape2D_mwpgf")
+
+[node name="GPUParticles2D" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL" instance=ExtResource("13_7vagw")]
+material = SubResource("CanvasItemMaterial_x71sh")
+position = Vector2(5, -39)
+
+[node name="GLOBO" type="AnimatedSprite2D" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL"]
+z_index = 5
+position = Vector2(-9, -106)
+sprite_frames = SubResource("SpriteFrames_s11m6")
+autoplay = "default"
+frame_progress = 0.467141
+script = ExtResource("17_prode")
+
+[node name="Area2D" type="Area2D" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO/Area2D"]
+position = Vector2(3, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y0yl4")
+
+[node name="TEXTO GLOBO" type="Label" parent="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL"]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+offset_left = -142.0
+offset_top = -137.0
+offset_right = 135.0
+offset_bottom = -84.0
+theme_override_fonts/font = ExtResource("18_8leg6")
+text = "¡Juguemos una partida de cartas!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("19_jw14c")
+
+[node name="LAZARUS" type="ParallaxLayer" parent="PARALLAX"]
+position = Vector2(169, 231)
+
+[node name="EMOCIONES LAZARUS" type="AnimatedSprite2D" parent="PARALLAX/LAZARUS"]
+sprite_frames = SubResource("SpriteFrames_f7eot")
+script = ExtResource("12_br76s")
+
+[node name="AREA 2D" type="Area2D" parent="PARALLAX/LAZARUS/EMOCIONES LAZARUS"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PARALLAX/LAZARUS/EMOCIONES LAZARUS/AREA 2D"]
+position = Vector2(-2, 6)
+shape = SubResource("CapsuleShape2D_4thgw")
+
+[node name="MARCO" type="ParallaxLayer" parent="PARALLAX"]
+z_index = 10
+
+[node name="MARCO" parent="PARALLAX/MARCO" instance=ExtResource("21_ftrec")]
+
+[node name="MANO CLARIBEL" type="Node2D" parent="PARALLAX/MARCO/MARCO"]
+position = Vector2(132.162, -122.782)
+script = ExtResource("22_jf0hj")
+
+[node name="MANO LAZARUS" type="Node2D" parent="PARALLAX/MARCO/MARCO"]
+position = Vector2(131.207, 62.9509)
+script = ExtResource("22_jf0hj")
+
+[node name="TEXTO MANO CLARIBEL" type="Label" parent="PARALLAX/MARCO/MARCO"]
+offset_top = -141.311
+offset_right = 306.0
+offset_bottom = -118.311
+theme_override_fonts/font = ExtResource("18_8leg6")
+horizontal_alignment = 1
+
+[node name="TEXTO MANO LAZARUS" type="Label" parent="PARALLAX/MARCO/MARCO"]
+offset_left = -2.0
+offset_top = 129.777
+offset_right = 307.0
+offset_bottom = 152.777
+theme_override_fonts/font = ExtResource("18_8leg6")
+horizontal_alignment = 1
+
+[node name="CONTADOR VICTORIAS" type="Label" parent="PARALLAX/MARCO/MARCO"]
+offset_left = -305.0
+offset_top = 126.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("18_8leg6")
+horizontal_alignment = 1
+
+[node name="BOTON NUEVA PARTIDA" type="Button" parent="."]
+offset_left = 361.0
+offset_top = 149.0
+offset_right = 601.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("18_8leg6")
+text = "NUEVA PARTID"
+
+[node name="BOTON CAMBIAR CARTAS" type="Button" parent="."]
+offset_left = 361.0
+offset_top = 149.0
+offset_right = 601.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("18_8leg6")
+text = "CAMBIAR CARTAS"
+
+[node name="BOTON JUGAR MANO" type="Button" parent="."]
+offset_left = 361.0
+offset_top = 149.0
+offset_right = 601.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("18_8leg6")
+text = "JUGAR MANO"
+
+[node name="BOTON FINALIZAR" type="Button" parent="."]
+offset_left = 361.0
+offset_top = 149.0
+offset_right = 601.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("18_8leg6")
+text = "FINALIZAR"
+
+[connection signal="cambio_personaje" from="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL" to="." method="_on_emociones_claribel_cambio_personaje"]
+[connection signal="mouse_entered" from="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/AREA 2D" to="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/AREA 2D" to="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO/Area2D" to="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO/Area2D" to="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO" method="_on_area_2d_mouse_exited"]
+[connection signal="texto_cambiado" from="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/TEXTO GLOBO" to="PARALLAX/CLARIBEL/EMOCIONES CLARIBEL/GLOBO" method="_on_texto_globo_texto_cambiado"]
+[connection signal="cambio_personaje" from="PARALLAX/LAZARUS/EMOCIONES LAZARUS" to="." method="_on_emociones_lazarus_cambio_personaje"]
+[connection signal="mouse_entered" from="PARALLAX/LAZARUS/EMOCIONES LAZARUS/AREA 2D" to="PARALLAX/LAZARUS/EMOCIONES LAZARUS" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="PARALLAX/LAZARUS/EMOCIONES LAZARUS/AREA 2D" to="PARALLAX/LAZARUS/EMOCIONES LAZARUS" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="BOTON NUEVA PARTIDA" to="." method="_on_boton_nueva_partida_pressed"]
+[connection signal="pressed" from="BOTON CAMBIAR CARTAS" to="." method="_on_boton_cambiar_cartas_pressed"]
+[connection signal="pressed" from="BOTON JUGAR MANO" to="." method="_on_boton_jugar_mano_pressed"]
+[connection signal="pressed" from="BOTON FINALIZAR" to="." method="_on_boton_finalizar_pressed"]

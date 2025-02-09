@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://co1asexv5mbkq"
+path="res://.godot/imported/WAITING 250122-130433.wav-61956ab9c55be001a6db3b83db746baa.sample"
+
+[deps]
+
+source_file="res://assets/musica/WAITING 250122-130433.wav"
+dest_files=["res://.godot/imported/WAITING 250122-130433.wav-61956ab9c55be001a6db3b83db746baa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

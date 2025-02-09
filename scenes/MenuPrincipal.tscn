@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1hqadlinw2fy"]
+
+[ext_resource type="Script" path="res://assets/scripts/MenuPrincipal.gd" id="1_jhc4a"]
+[ext_resource type="Script" path="res://assets/scripts/Parallax.gd" id="2_7l3j8"]
+[ext_resource type="PackedScene" uid="uid://bi7dhq8env27i" path="res://scenes/Marco.tscn" id="4_84gtm"]
+[ext_resource type="FontFile" uid="uid://wn7l3rvivc24" path="res://assets/fonts/KiwiSoda.ttf" id="4_yi6ca"]
+[ext_resource type="Texture2D" uid="uid://d4bsedsslgofg" path="res://assets/sprites/menu_principal.png" id="5_mrltr"]
+
+[node name="Menú" type="Node"]
+script = ExtResource("1_jhc4a")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_7l3j8")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="FONDO" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_index = -10
+position = Vector2(320, 180)
+texture = ExtResource("5_mrltr")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="MARCO" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("4_84gtm")]
+
+[node name="BOTON JUGAR" type="Button" parent="ParallaxBackground/ParallaxLayer/MARCO"]
+offset_left = 31.8345
+offset_top = -63.5409
+offset_right = 271.834
+offset_bottom = -3.54089
+theme_override_fonts/font = ExtResource("4_yi6ca")
+text = "NUEVA PARTIDA"
+
+[node name="BOTON SALIR" type="Button" parent="ParallaxBackground/ParallaxLayer/MARCO"]
+offset_left = 31.8345
+offset_top = -1.43324
+offset_right = 271.834
+offset_bottom = 58.5668
+theme_override_fonts/font = ExtResource("4_yi6ca")
+text = "SALIR"
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer/MARCO/BOTON JUGAR" to="." method="_on_boton_jugar_pressed"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer/MARCO/BOTON SALIR" to="." method="_on_boton_salir_pressed"]

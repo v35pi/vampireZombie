@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi7dhq8env27i"]
+
+[ext_resource type="Texture2D" uid="uid://dcayichwqgu74" path="res://assets/sprites/marco_nuevo.png" id="1_c5b2b"]
+
+[node name="MARCO" type="Sprite2D"]
+position = Vector2(319.683, 179.5)
+scale = Vector2(1.04657, 1.04657)
+texture = ExtResource("1_c5b2b")
